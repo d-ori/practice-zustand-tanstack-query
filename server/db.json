@@ -1,0 +1,7 @@
+{
+  "todos": [
+    { "id": 1, "content": "투두 1 입니다", "isDone": true },
+    { "id": 2, "content": "투두 2 입니다", "isDone": false },
+    { "id": 3, "content": "투두 3 입니다", "isDone": true }
+  ]
+}
