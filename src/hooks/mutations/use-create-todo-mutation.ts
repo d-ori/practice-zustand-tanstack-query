@@ -1,10 +1,14 @@
 import { createTodo } from "@/api/create-todo";
-import { useMutation } from "@tanstack/react-query";
+import { QUERY_KEYS } from "@/lib/constants";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useCreateTodoMutation() {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: createTodo,
-    onSuccess: () => window.location.reload(),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.todo.all }),
     onError: (error) => window.alert(error.message),
   });
 }
